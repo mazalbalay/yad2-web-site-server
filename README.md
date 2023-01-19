@@ -5,7 +5,7 @@
 נשעה שימוש ב-mongoDB ,express ו-node-js .
 
 
-Server side of a social network that helps advertise random products for sale.
+A server side of a social network that helps advertise random products for sale.
 Updating the information coming from the client such as adding, deleting and updating ads.
 Login management and customer registration.
 This project uses mongoDB, express and node-js.
