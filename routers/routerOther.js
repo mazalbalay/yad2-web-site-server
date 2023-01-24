@@ -9,9 +9,9 @@ router.route("/other").get(async function (req, resp) {
   return resp.json(data);
 });
 
-router.route("/other/:idPost").get(async function (req, resp) {
-  let idPost = req.params.idPost;
-  let user = await bll.getOther(idPost);
+router.route("/other/:id").get(async function (req, resp) {
+  let id = req.params.id;
+  let user = await bll.getOther(id);
   return resp.json(user);
 });
 
