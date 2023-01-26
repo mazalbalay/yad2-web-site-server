@@ -5,19 +5,19 @@ const router = express.Router();
 // http://localhost:8000/other
 
 router.route("/other").get(async function (req, resp) {
-  const data = await bll.getOthers();
+  const data = await bll.getOters();
   return resp.json(data);
 });
 
-router.route("/other/:id").get(async function (req, resp) {
-  let id = req.params.id;
-  let user = await bll.getOther(id);
+router.route("/other/:idPost").get(async function (req, resp) {
+  let idPost = req.params.idPost;
+  let user = await bll.getOterByIdPost(idPost);
   return resp.json(user);
 });
 
 router.route("/other").post(async function (req, resp) {
   let obj = req.body;
-  let status = await bll.createOther(obj);
+  let status = await bll.createOter(obj);
   return resp.json(status);
 });
 
@@ -25,14 +25,14 @@ router.route("/other/:id").put(async function (req, resp) {
   let obj = req.body;
   let id = req.params.id;
 
-  let status = await bll.updateOther(id, obj);
+  let status = await bll.updateOter(id, obj);
   return resp.json(status);
 });
 
 router.route("/other/:id").delete(async function (req, resp) {
   let id = req.params.id;
 
-  let status = await bll.deleteOther(id);
+  let status = await bll.deleteOter(id);
   return resp.json(status);
 });
 

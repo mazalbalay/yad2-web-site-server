@@ -1,6 +1,6 @@
 const model = require("../model/model");
 
-const getOthers = function () {
+const getOters = function () {
   return new Promise((resolve, reject) => {
     model.otherModel.find({}, function (err, data) {
       if (err) {
@@ -12,7 +12,7 @@ const getOthers = function () {
   });
 };
 
-const getOther = function (idPost) {
+const getOterByIdPost = function (idPost) {
   return new Promise((resolve, reject) => {
     model.otherModel.find({ idPost: idPost }, function (err, data) {
       if (err) {
@@ -24,21 +24,20 @@ const getOther = function (idPost) {
   });
 };
 
-const createOther = function (obj) {
+const createOter = function (obj) {
   return new Promise((resolve, reject) => {
-    let other = model.otherModel(obj);
-
-    other.save(function (err) {
+    let Oter = model.otherModel(obj);
+    Oter.save(function (err) {
       if (err) {
         reject(err);
       } else {
-        resolve(other.userName);
+        resolve(Oter.userName);
       }
     });
   });
 };
 
-const updateOther = function (id, obj) {
+const updateOter = function (id, obj) {
   return new Promise((resolve, reject) => {
     model.otherModel.findByIdAndUpdate(id, obj, function (err) {
       if (err) {
@@ -50,7 +49,7 @@ const updateOther = function (id, obj) {
   });
 };
 
-const deleteOther = function (id) {
+const deleteOter = function (id) {
   return new Promise((resolve, reject) => {
     model.otherModel.findByIdAndDelete(id, function (err) {
       if (err) {
@@ -62,4 +61,4 @@ const deleteOther = function (id) {
   });
 };
 
-module.exports = { getOthers, getOther, createOther, updateOther, deleteOther };
+module.exports = { getOters, getOterByIdPost, createOter, updateOter, deleteOter };

@@ -2,16 +2,16 @@ const express = require("express");
 const bll = require("../bll/bllFurnitures");
 const router = express.Router();
 
-// http://localhost:8000/furnitures
+// http://localhost:8000/Furnitures
 
 router.route("/furnitures").get(async function (req, resp) {
-  const data = await bll.getfurnitures();
+  const data = await bll.getFurnitures();
   return resp.json(data);
 });
 
 router.route("/furnitures/:idPost").get(async function (req, resp) {
   let idPost = req.params.idPost;
-  let user = await bll.getFurniture(idPost);
+  let user = await bll.getFurnitureByIdPost(idPost);
   return resp.json(user);
 });
 

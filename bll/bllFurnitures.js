@@ -1,6 +1,6 @@
 const model = require("../model/model");
 
-const getfurnitures = function () {
+const getFurnitures = function () {
   return new Promise((resolve, reject) => {
     model.furnitureModel.find({}, function (err, data) {
       if (err) {
@@ -12,7 +12,7 @@ const getfurnitures = function () {
   });
 };
 
-const getFurniture = function (idPost) {
+const getFurnitureByIdPost = function (idPost) {
   return new Promise((resolve, reject) => {
     model.furnitureModel.find({ idPost: idPost }, function (err, data) {
       if (err) {
@@ -26,13 +26,12 @@ const getFurniture = function (idPost) {
 
 const createFurniture = function (obj) {
   return new Promise((resolve, reject) => {
-    let furniture = model.furnitureModel(obj);
-
-    furniture.save(function (err) {
+    let Furniture = model.furnitureModel(obj);
+    Furniture.save(function (err) {
       if (err) {
         reject(err);
       } else {
-        resolve(furniture.username);
+        resolve(Furniture.userName);
       }
     });
   });
@@ -62,10 +61,4 @@ const deleteFurniture = function (id) {
   });
 };
 
-module.exports = {
-  getfurnitures,
-  getFurniture,
-  createFurniture,
-  updateFurniture,
-  deleteFurniture,
-};
+module.exports = { getFurnitures, getFurnitureByIdPost, createFurniture, updateFurniture, deleteFurniture };
