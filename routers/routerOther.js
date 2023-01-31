@@ -35,5 +35,4 @@ router.route("/other/:id").delete(async function (req, resp) {
   let status = await bll.deleteOter(id);
   return resp.json(status);
 });
-
 module.exports = router;
